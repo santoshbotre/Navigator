@@ -10,6 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // We are typealias navigator as in future this screen will allow us to navigate to different ViewControllers
+    typealias flowNavigator = FavouriteNavigator
+    var navigator: flowNavigator?
+    
+    required init?(coder aDecoder: NSCoder) {
+        //fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -42,3 +51,9 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
+// Action for screenflow
+extension ViewController {
+    @IBAction func favourite(_ sender: Any) {
+        self.navigator?.viewController(self)
+    }
+}
