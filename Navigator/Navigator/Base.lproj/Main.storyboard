@@ -52,7 +52,11 @@
                                 <action selector="favourite:" destination="BYZ-38-t0r" id="yrq-jH-Ci7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Cart" id="bd3-qt-neD"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cart" id="bd3-qt-neD">
+                            <connections>
+                                <action selector="cart:" destination="BYZ-38-t0r" id="0UJ-Xl-23S"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </viewController>
@@ -89,6 +93,9 @@
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cart"/>
+                                <connections>
+                                    <action selector="cart:" destination="mWN-wX-msU" eventType="touchUpInside" id="bgA-Ta-9gh"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -97,6 +104,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6j-Xv-VVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1310" y="134"/>
+        </scene>
+        <!--Cart-->
+        <scene sceneID="pBT-vS-IBT">
+            <objects>
+                <tableViewController storyboardIdentifier="CartViewController" id="vEa-dF-ZSw" customClass="CartViewController" customModule="Navigator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4z7-Yv-vYv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartCell" id="rsX-2L-wvE">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rsX-2L-wvE" id="gbE-h1-e3G">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vEa-dF-ZSw" id="rCj-HM-c3q"/>
+                            <outlet property="delegate" destination="vEa-dF-ZSw" id="H0s-rT-1k0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Cart" id="F4g-Im-TFR">
+                        <barButtonItem key="rightBarButtonItem" title="Favourite" id="48E-9l-2is">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mK3-2t-izO">
+                                <rect key="frame" x="276" y="5" width="83" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Favourite"/>
+                                <connections>
+                                    <action selector="favouriteButtonAction:" destination="vEa-dF-ZSw" eventType="touchUpInside" id="SYp-Qj-9oN"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBN-mM-9dK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2025" y="143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TfY-4h-eg8">

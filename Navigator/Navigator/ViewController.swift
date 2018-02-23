@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     // We are typealias navigator as in future this screen will allow us to navigate to different ViewControllers
-    typealias flowNavigator = FavouriteNavigator
+    typealias flowNavigator = FavouriteNavigator & CartNavigator
     var navigator: flowNavigator?
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,5 +55,9 @@ extension ViewController: UITableViewDelegate {
 extension ViewController {
     @IBAction func favourite(_ sender: Any) {
         self.navigator?.viewController(self)
+    }
+    
+    @IBAction func cart(_ sender: Any) {
+        self.navigator?.viewController(self, forUserId: "YM120")
     }
 }
