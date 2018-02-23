@@ -10,9 +10,18 @@ import UIKit
 
 class FavouriteViewController: UITableViewController {
 
-    static func instantiate(with navigator: Navigator) -> FavouriteViewController {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FavouriteViewController") as! FavouriteViewController
+    private var navigator: CartNavigator?
+    
+    static func instantiate(with navigator: CartNavigator) -> FavouriteViewController {
+        print(FavouriteViewController.storyboardIdentifier)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: FavouriteViewController.storyboardIdentifier) as! FavouriteViewController
+        vc.navigator = navigator
         return vc
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        //fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
@@ -39,6 +48,11 @@ class FavouriteViewController: UITableViewController {
     override func tableView(_: UITableView, didSelectRowAt: IndexPath) {
         //TODO: Navigate to the details screen
     }
-
 }
 
+// Action for screenflow
+extension FavouriteViewController {
+    @IBAction func cart(_ sender: Any) {
+        self.navigator?.viewController(self, forUserId: "223")
+    }
+}

@@ -8,6 +8,15 @@
 
 import UIKit
 
+/**
+ Navigator is a protocol two have an abstraction between the ViewControllers.
+ 
+ It will help to manage the ViewController navigation workflow in the seemless mannar.
+ 
+ - version:
+ 0.1
+ */
+
 protocol Navigator {
     //TODO - All the common navigatation functionality we want for all the VC.
 }
@@ -22,9 +31,21 @@ protocol FavouriteNavigator: Navigator {
      - parameters:
      - viewController: Current ViewController
      
-     - version:
-     0.1
      */
 
     func viewController(_ viewController: UIViewController)
+}
+
+protocol CartNavigator: Navigator {
+    
+    /**
+    FavouriteNavigator to the FavouriteViewController
+    
+    - returns: void
+    
+    - parameters:
+        - viewController: Current ViewController
+        - forUserId: user id
+    */
+    func viewController(_ viewController: UIViewController, forUserId: String)
 }
