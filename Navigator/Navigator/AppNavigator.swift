@@ -48,6 +48,13 @@ extension AppNavigator: FavouriteNavigator {
     }
 }
 
+/**
+ AppNavigator(CartNavigator) extension is responsible for managing the CartViewController initaliation and showing it in the view.
+ 
+ - version:
+ 0.1
+ */
+
 extension AppNavigator: CartNavigator {
     
     func viewController(_ viewController: UIViewController, forUserId: String, show: ShowType) {
