@@ -141,6 +141,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="favourite" destination="mK3-2t-izO" id="6b1-qg-xdh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBN-mM-9dK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

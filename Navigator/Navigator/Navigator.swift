@@ -24,7 +24,7 @@ protocol Navigator {
 protocol FavouriteNavigator: Navigator {
     
     /**
-     FavouriteNavigator to the FavouriteViewController
+     FavouriteNavigator to launch/show/push the FavouriteViewController
      
      - returns: void
      
@@ -39,7 +39,7 @@ protocol FavouriteNavigator: Navigator {
 protocol CartNavigator: Navigator {
     
     /**
-    FavouriteNavigator to the FavouriteViewController
+    CartNavigator to the CartViewController
     
     - returns: void
     
@@ -47,5 +47,10 @@ protocol CartNavigator: Navigator {
         - viewController: Current ViewController
         - forUserId: user id
     */
-    func viewController(_ viewController: UIViewController, forUserId: String)
+    func viewController(_ viewController: UIViewController, forUserId: String, show: ShowType)
+}
+
+enum ShowType {
+    case push
+    case present
 }

@@ -11,14 +11,14 @@ import UIKit
 class CartViewController: UITableViewController {
 
     private var navigator: FavouriteNavigator?
+    @IBOutlet weak var favourite: UIButton!
     
     static func instantiate(with navigator: FavouriteNavigator, forUserId: String) -> CartViewController {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: CartViewController.storyboardIdentifier) as! CartViewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: self.storyboardIdentifier) as! CartViewController
         vc.navigator = navigator
         return vc
     }
     
-    @IBOutlet weak var favouriteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
@@ -48,5 +48,19 @@ class CartViewController: UITableViewController {
 extension CartViewController {
     @IBAction func favouriteButtonAction(_ sender: Any) {
         self.navigator?.viewController(self)
+    }
+}
+
+extension CartViewController {
+    func presentingCartViewController() {
+        self.favourite.setTitle("Done", for: .normal)
+        self.favourite.removeTarget(self, action: #selector(favouriteButtonAction), for: .touchUpInside)
+        self.favourite.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
+
+    }
+    
+    //then make a action method :
+    @objc func doneAction(sender:UIButton!) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -42,8 +42,18 @@ extension AppNavigator: FavouriteNavigator {
 }
 
 extension AppNavigator: CartNavigator {
-    func viewController(_ viewController: UIViewController, forUserId: String) {
+    
+    func viewController(_ viewController: UIViewController, forUserId: String, show: ShowType) {
         let cartViewController = CartViewController.instantiate(with: self, forUserId: forUserId)
-        navigationController.pushViewController(cartViewController, animated: true)
-    }
+        cartViewController.title = forUserId
+        
+        switch show {
+        case .present:
+            let navigationController = UINavigationController.init(rootViewController: cartViewController)
+            viewController.present(navigationController, animated: true, completion: nil)
+            cartViewController.presentingCartViewController()
+        case .push:
+            navigationController.pushViewController(cartViewController, animated: true)
+        }
+    }    
 }

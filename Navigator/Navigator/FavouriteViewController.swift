@@ -14,7 +14,7 @@ class FavouriteViewController: UITableViewController {
     
     static func instantiate(with navigator: CartNavigator) -> FavouriteViewController {
         print(FavouriteViewController.storyboardIdentifier)
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: FavouriteViewController.storyboardIdentifier) as! FavouriteViewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: self.storyboardIdentifier) as! FavouriteViewController
         vc.navigator = navigator
         return vc
     }
@@ -53,6 +53,6 @@ class FavouriteViewController: UITableViewController {
 // Action for screenflow
 extension FavouriteViewController {
     @IBAction func cart(_ sender: Any) {
-        self.navigator?.viewController(self, forUserId: "223")
+        self.navigator?.viewController(self, forUserId: "223", show:.present)
     }
 }

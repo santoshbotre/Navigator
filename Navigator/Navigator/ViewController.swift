@@ -58,6 +58,6 @@ extension ViewController {
     }
     
     @IBAction func cart(_ sender: Any) {
-        self.navigator?.viewController(self, forUserId: "YM120")
+        self.navigator?.viewController(self, forUserId: "YM120", show:.push)
     }
 }
