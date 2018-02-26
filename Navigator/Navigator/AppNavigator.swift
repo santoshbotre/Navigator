@@ -32,6 +32,13 @@ class AppNavigator: Navigator {
     }
 }
 
+/**
+ AppNavigator(FavouriteNavigator) extension is responsible for managing the FavouriteViewController initaliation and showing it in the view.
+ 
+ - version:
+ 0.1
+ */
+
 extension AppNavigator: FavouriteNavigator {
     
     func viewController(_ viewController: UIViewController) {
